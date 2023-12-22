@@ -1,0 +1,72 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+  
+.home-page .home-image {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    user-select: none;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    transition: filter 0.3s, -webkit-filter 0.3s, max-width 0.3s;
+}
+
+.home-page .home-image:hover {
+    max-width: 620px;
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+    transition: filter 0.3s, -webkit-filter 0.3s, max-width 0.3s;
+}
+  
+.home-page .home-content {
+    text-align: center;
+}
+  
+.home-page .home-content .description {
+    font-size: 18px;
+    margin-bottom: 20px;
+    user-select: none;
+}
+  
+.home-page .home-content .login-button {
+    background-color: #f8c630;
+    color: #2b2929;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: font-size 0.3s, background-color 0.3s;
+    user-select: none;
+}
+  
+.home-page .home-content .login-button:hover {
+    background-color: #fcae24;
+    font-size: 23px;
+    transition: font-size 0.3s, background-color 0.3s;
+}
+
+.home-page .home-content p {
+    font-size: 20px;
+    user-select: none;
+}
+
+.home-page .home-content p:nth-child(3), .home-page .home-content p:nth-child(4), .home-page .home-content p:nth-child(5), .home-page .home-content p:nth-child(6) {
+    cursor: pointer;
+    transition: font-size 0.3s;
+}
+
+.home-page .home-content p:nth-child(3):hover, .home-page .home-content p:nth-child(4):hover, .home-page .home-content p:nth-child(5):hover, .home-page .home-content p:nth-child(6):hover {
+    font-size: 23px;
+    transition: font-size 0.3s;
+}
+
+.home-page .home-content p:nth-child(3) {
+    margin-top: 30px;
+}

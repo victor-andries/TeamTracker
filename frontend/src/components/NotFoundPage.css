@@ -1,0 +1,50 @@
+.not-found-page {
+    text-align: center;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found-page h2 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.not-found-page img {
+    width: 200px;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+}
+
+.not-found-page button {
+    background-color: #f8c630;
+    font-weight: bold;
+    color: #2b2929;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: font-size 0.3s, background-color 0.3s;
+    margin-top: 50px;
+    font-size: 30px;
+    user-select: none;
+}
+
+.not-found-page button:hover {
+    background-color: #fcae24;
+    font-size: 35px;
+    transition: font-size 0.3s, background-color 0.3s;
+}
+
+.dark-mode .not-found-page {
+    color: #fff;
+}
+
+.light-mode .not-found-page {
+    color: #2b2929;
+}

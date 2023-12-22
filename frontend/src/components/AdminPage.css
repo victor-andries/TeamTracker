@@ -1,0 +1,82 @@
+.admin-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.admin-page .admin-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.admin-page .admin-content .user-container {
+    margin-top: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    background-color: #2b2929;
+    color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+    height: 72vh;
+    overflow-wrap: break-word;
+}
+
+.admin-page .admin-content .user-container h2 {
+    margin-bottom: 30px;
+    user-select: none;
+}
+
+.admin-page .admin-content .user-container:nth-child(2) {
+    margin-left: 40px;
+}
+
+.admin-page .admin-content .user-container .pAdminPage {
+    font-size: 20px;
+    cursor: pointer;
+    transition: font-size 0.3s;
+}
+
+.admin-page .admin-content .user-container .pAdminPage:hover {
+    font-size: 25px;
+    transition: font-size 0.3s;
+}
+
+.admin-page .admin-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.admin-page .admin-buttons button {
+    background-color: #f8c630;
+    color: #2b2929;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 20px;
+    transition: font-size 0.3s, background-color 0.3s, color 0.3s;
+    user-select: none;
+    margin-left: 30px;
+}
+
+.admin-page .admin-buttons button:nth-child(2) {
+    margin-left: 40px;
+}
+
+.admin-page .admin-buttons button:hover {
+    background-color: #fcae24;
+    font-size: 20px;
+    transition: font-size 0.3s, background-color 0.3s;
+}
+
+.light-mode .admin-page .admin-content .user-container {
+    background-color: #fff;
+    color: #2b2929;
+}

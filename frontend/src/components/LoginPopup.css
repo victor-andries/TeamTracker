@@ -1,0 +1,96 @@
+.login-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.login-popup .popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+}
+
+.login-popup .popup-content label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.login-popup .popup-content label input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid;
+    transition: border-color 0.3s;
+    background-color: inherit;
+}
+
+.login-popup .popup-content label input:hover {
+    border-color: #f8c630;
+    height: 60px;
+    transition: border-color 0.3s;
+}
+
+.login-popup .popup-content button {
+    background-color: #f8c630;
+    color: #2b2929;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: font-size 0.3s, background-color 0.3s, color 0.3s;
+    user-select: none;
+}
+
+.login-popup .popup-content button:hover {
+    background-color: #fcae24;
+    font-size: 25px;
+    transition: font-size 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.login-popup .popup-content .pLoginPopup {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: font-size 0.3s;
+    user-select: none;
+}
+
+.login-popup .popup-content .pLoginPopup:hover {
+    font-size: 18px;
+    transition: font-size 0.3s;
+}
+
+.dark-mode .login-popup .popup-content {
+    background-color: #2b2929;
+    color: #fff;
+}
+  
+.light-mode .login-popup .popup-content {
+    background-color: #fff;
+    color: #2b2929;
+}
+
+.dark-mode .login-popup .popup-content label input {
+    border-color: #fff;
+    color: #fff;
+}
+
+.dark-mode .login-popup .popup-content label input:hover {
+    border-color: #f8c630;
+}

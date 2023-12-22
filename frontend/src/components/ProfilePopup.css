@@ -1,0 +1,76 @@
+.profile-popup {
+    position: absolute;
+    right: 20px;
+    background-color: inherit;
+    color: inherit;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: top 0.3s, background-color 0.3s, color 0.3s;
+    z-index: 1;
+}
+  
+.profile-popup .popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.profile-popup .popup-content .user-info {
+    margin-bottom:20px;
+}
+
+.profile-popup .popup-content .user-info p:first-child {
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 0px;
+}
+
+.profile-popup .popup-content .user-info p:nth-child(2) {
+    margin-bottom: 30px;
+}
+
+.profile-popup .popup-content .user-info p:nth-child(3) {
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+
+.profile-popup .popup-content .user-info p:nth-child(3):hover {
+    font-size: 17px;
+    color: rgb(73, 209, 255);
+    text-decoration: underline;
+    transition: all 0.3s;
+}
+  
+.profile-popup .popup-content button {
+    background-color: #f8c630;
+    font-weight: bold;
+    color: #2b2929;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: font-size 0.3s, background-color 0.3s;
+    user-select: none;
+}
+
+.profile-popup .popup-content button:hover {
+    background-color: #fcae24;
+    font-size: 20px;
+    transition: font-size 0.3s, background-color 0.3s;
+}
+
+.dark-mode .profile-popup {
+    background-color: #2b2929;
+    color: #fff;
+}
+  
+.light-mode .profile-popup {
+    background-color: #fff;
+    color: #2b2929;
+}

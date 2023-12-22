@@ -1,0 +1,105 @@
+.task-container {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  background-color: inherit;
+  color: inherit;
+  transition: background-color 0.3s, color 0.3s;
+  height: 80vh;
+  margin-top: 32px;
+}
+
+.task-container h2 {
+  margin-bottom: 30px;
+  user-select: none;
+}
+
+.task-container .pTaskContainer {
+  font-size: 20px;
+  cursor: pointer;
+  transition: font-size 0.3s;
+}
+
+.task-container .pTaskContainer:hover {
+  font-size: 25px;
+  transition: font-size 0.3s;
+}
+
+.task-container .task-box {
+  position: relative;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  max-height: 110px;
+  transition: max-height 0.3s, border-color 0.3s;  
+}
+
+.task-box:hover {
+  max-height: 120px;
+  border-color: #f8c630;
+  transition: max-height 0.3s, border-color 0.3s;  
+}
+
+.task-box:hover .task-details p:first-child {
+  font-size: 35px;
+  transition: font-size 0.3s;
+}
+
+.task-box .task-details p:nth-child(2) {
+  user-select: none;
+}
+
+.task-box:hover .task-details button {
+  font-size: 18px;
+  transition: font-size 0.3s;
+}
+
+.task-details {
+  flex: 1;
+}
+
+.available-tasks button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background-color: #f8c630;
+  color: #2b2929;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  transition: font-size 0.3s;
+  user-select: none;
+}
+
+.available-tasks button:hover {
+  background-color: #fcae24;
+  transition: background-color 0.3s;
+}
+
+.available-tasks p:first-child {
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 30px;
+  margin-bottom: 0px;
+  transition: font-size 0.3s;
+}
+
+.available-tasks p:nth-child(2) {
+  font-size: 15px;
+}
+
+.dark-mode .task-container {
+  background-color: #2b2929;
+  color: #fff;
+}
+
+.light-mode .task-container {
+  background-color: #fff;
+  color: #2b2929;
+}
