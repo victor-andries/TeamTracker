@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import db from "./dbConfig.js";
+import db from "../src/dbConfig.js";
 
 const User = db.define("User", {
     user_id: {
@@ -30,17 +30,14 @@ const User = db.define("User", {
     },
 
     user_type: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM("user", "manager", "admin"),
         allowNull: false,
-        validate: {
-            isIn: [["user", "manager", "admin"]]
-        }
     },
 
     manager_id: {
         type: Sequelize.INTEGER,
         allowNull: false
-    },
+    }
 })
 
 export default User;

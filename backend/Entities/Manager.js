@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import db from "./dbConfig.js";
+import db from "../src/dbConfig.js";
 
 const Manager = db.define("Manager", {
     manager_id: {
@@ -19,7 +19,5 @@ const Manager = db.define("Manager", {
         allowNull: false
     }
 })
-
-Manager.belongsTo(db.User, { foreignKey: 'manager_id', targetKey: 'manager_id' })
 
 export default Manager;

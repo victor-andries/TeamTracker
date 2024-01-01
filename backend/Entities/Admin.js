@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import db from "./dbConfig.js";
+import db from "../src/dbConfig.js";
 
 const Admin = db.define("Admin", {
     admin_id: {

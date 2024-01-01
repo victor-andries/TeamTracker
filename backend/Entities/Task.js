@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import db from "./dbConfig.js";
+import db from "../src/dbConfig.js";
 
 const Task = db.define("Task", {
     task_id: {
@@ -30,11 +30,13 @@ const Task = db.define("Task", {
     },
 
     status: {
-        type: Sequelize.STRING,
+        type: Sequelize.ENUM("Not Assigned", "In Progress", "Completed"),
         allowNull: false,
-        validate: {
-            isIn: [["Not Assigned", "In Progress", "Completed"]]
-        }
+    },
+    
+    task_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
     }
 })
 
