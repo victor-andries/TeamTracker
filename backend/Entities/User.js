@@ -36,7 +36,7 @@ const User = db.define("User", {
 
     manager_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
     }
 })
 

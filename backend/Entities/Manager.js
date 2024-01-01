@@ -9,11 +9,6 @@ const Manager = db.define("Manager", {
         allowNull: false
     },
 
-    manager_name: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-
     team_name: {
         type: Sequelize.STRING,
         allowNull: false

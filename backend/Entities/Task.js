@@ -34,9 +34,9 @@ const Task = db.define("Task", {
         allowNull: false,
     },
     
-    task_id: {
+    user_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
     }
 })
 
