@@ -1,7 +1,7 @@
 import express from 'express';
 import db from '../src/dbConfig.js';
 
-let createDbRouter = express.Router();
+const createDbRouter = express.Router();
 
 createDbRouter.route('/create').get(async (req, res) => {
     try{

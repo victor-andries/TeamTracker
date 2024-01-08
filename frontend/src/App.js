@@ -21,15 +21,7 @@ const App = () => {
   const completedTasks = ['Task 1', 'Task 2', 'Task 3'];
   const availableTasks = ['Task 4', 'Task 5', 'Task 6', 'Task 7'];
 
-  const userData = [
-    { id: 1, type: 'user', name: 'User 1' },
-    { id: 1, type: 'user', name: 'User 2' },
-    { id: 1, type: 'user', name: 'User 3' },
-    { id: 2, type: 'manager', name: 'Manager 1' },
-    { id: 1, type: 'user', name: 'User 4' },
-    { id: 2, type: 'manager', name: 'Manager 2' },
-    { id: 2, type: 'manager', name: 'Manager 3' }
-  ];
+  
 
   return (
     <div className={`app-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
@@ -40,7 +32,7 @@ const App = () => {
       {currentPage === 'home' ? (
         <HomePage onPageChange={handlePageChange} />
       ) : ( currentPage === 'admin' ? (
-              <AdminPage userData={userData} />
+              <AdminPage/>
             ) : ( currentPage === 'manager' ? (
                   <HomePage onPageChange={handlePageChange} /> // manager
                 ) : ( currentPage === 'user' ? (

@@ -39,19 +39,9 @@ const AdminPage = ({ userData }) => {
       <div className='admin-content'>
         <div className="user-container">
           <h2>Users</h2>
-          {userData
-            .filter((user) => user.type === 'regular')
-            .map((user, index) => (
-              <p key={user.id} onClick={(e) => openRemovePopup({ username: user.name }, e)} className='pAdminPage'>{`${index + 1}. ${user.name}`}</p>
-            ))}
         </div>
-        <div className="user-container">
+        <div className="manager-container">
           <h2>Managers</h2>
-          {userData
-            .filter((user) => user.type === 'manager')
-            .map((user, index) => (
-              <p key={user.id} onClick={(e) => openRemovePopup({ username: user.name }, e)} className='pAdminPage'>{`${index + 1}. ${user.name}`}</p>
-            ))}
         </div>
       </div>
       {userPopupVisible && <AddUserPopup onClose={toggleUserPopup}/>}
