@@ -37,6 +37,11 @@ const User = db.define("User", {
     manager_id: {
         type: Sequelize.INTEGER,
         allowNull: true
+    },
+
+    profile_photo: {
+        type: Sequelize.BLOB,
+        allowNull: true
     }
 })
 

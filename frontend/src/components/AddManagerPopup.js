@@ -3,10 +3,11 @@ import './AddManagerPopup.css';
 
 const AddManagerPopup = ({ onClose }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
+    user_name: '',
     password: '',
-    repeatPassword: '',
+    email: '',
+    team_name: '',
+    user_type: 'manager',
     profilePicture: null,
   });
 
@@ -30,24 +31,19 @@ const AddManagerPopup = ({ onClose }) => {
         <h2>Add Manager</h2>
         <label>
           Name:
-          <input type="text" name="name" value={formData.name} onChange={handleChange} />
+          <input type="text" name="name" value={formData.user_name} onChange={handleChange} />
+        </label>        
+        <label>
+          Password:
+          <input type="password" name="password" value={formData.password} onChange={handleChange} />
         </label>
         <label>
           Email:
           <input type="email" name="email" value={formData.email} onChange={handleChange} />
         </label>
         <label>
-          Password:
-          <input type="password" name="password" value={formData.password} onChange={handleChange} />
-        </label>
-        <label>
-          Repeat Password:
-          <input
-            type="password"
-            name="repeatPassword"
-            value={formData.repeatPassword}
-            onChange={handleChange}
-          />
+          Team name:
+          <input type="text" name="team_name" value={formData.team_name} onChange={handleChange} />
         </label>
         <label>
           Profile Picture:

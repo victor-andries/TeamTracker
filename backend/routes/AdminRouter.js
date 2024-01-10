@@ -1,10 +1,12 @@
 import express from 'express';
 import User from '../Entities/User.js';
 import Manager from '../Entities/Manager.js';
+import multer from 'multer';
 
 const adminRouter = express.Router();
+const upload = multer({ dest: 'uploads/' });
 
-adminRouter.post('/admin/adduser', async (req, res) => {
+adminRouter.post('/admin/adduser', upload.single('profile_photo'), async (req, res) => {
     try {
         const newUser = await User.create(req.body);
         res.status(201).json(newUser);

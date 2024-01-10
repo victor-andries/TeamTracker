@@ -3,7 +3,7 @@ import teamTrackerImage from './../media/teamtracker_image.jpg';
 import LoginPopup from './LoginPopup';
 import './HomePage.css';
 
-const HomePage = ({ onPageChange }) => {
+const HomePage = ({ onPageChange, onUserTypeChange }) => {
   const [loginPopupVisible, setLoginPopupVisible] = useState(false);
 
   const toggleLoginPopup = () => {
@@ -23,7 +23,7 @@ const HomePage = ({ onPageChange }) => {
         <p onClick={() => onPageChange('admin')}>AdminPage</p>
         <p onClick={() => onPageChange('sdfkshfkss')}>ErrorPage</p>
       </div>
-      {loginPopupVisible && <LoginPopup onClose={toggleLoginPopup} />}
+      {loginPopupVisible && <LoginPopup onClose={toggleLoginPopup} onLoginSuccess={onUserTypeChange} />}
     </div>
   );
 };

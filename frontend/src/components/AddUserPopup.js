@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import './AddUserPopup.css';
+import axios from 'axios';
 
 const AddUserPopup = ({ onClose }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    manager: '',
-    email: '',
+    user_name: '',
     password: '',
-    repeatPassword: '',
-    profilePicture: null,
+    email: '',
+    manager_id: null,
+    user_type: "user",
+    profile_photo: null,
   });
 
   const handleChange = (e) => {
@@ -18,11 +19,28 @@ const AddUserPopup = ({ onClose }) => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    setFormData((prevData) => ({ ...prevData, profilePicture: file }));
+    setFormData((prevData) => ({ ...prevData, profile_photo: file }));
   };
 
   const handleSubmit = () => {
-    onClose();
+    const data = new FormData();
+    Object.keys(formData).forEach(key => {
+        data.append(key, formData[key]);
+    });
+  axios.post('http://localhost:9000/api/admin/adduser', data, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+    .then(response => {
+      if(response.status === 200){
+        console.log('User adaugat cu succes!');
+      }
+      onClose();
+
+    }).catch(error => {
+      console.error('Error:', error);
+    });
   };
 
   return (
@@ -31,28 +49,19 @@ const AddUserPopup = ({ onClose }) => {
         <h2>Add User</h2>
         <label>
           Name:
-          <input type="text" name="name" value={formData.name} onChange={handleChange} />
-        </label>
-        <label>
-          Assigned Manager:
-          <input type="text" name="manager" value={formData.manager} onChange={handleChange} />
-        </label>
-        <label>
-          Email:
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
+          <input type="text" name="user_name" value={formData.user_name} onChange={handleChange} />
         </label>
         <label>
           Password:
           <input type="password" name="password" value={formData.password} onChange={handleChange} />
         </label>
         <label>
-          Repeat Password:
-          <input
-            type="password"
-            name="repeatPassword"
-            value={formData.repeatPassword}
-            onChange={handleChange}
-          />
+          Email:
+          <input type="email" name="email" value={formData.email} onChange={handleChange} />
+        </label>
+        <label>
+          Assigned Manager:
+          <input type="text" name="manager_id" value={formData.manager_id} onChange={handleChange} />
         </label>
         <label>
           Profile Picture:

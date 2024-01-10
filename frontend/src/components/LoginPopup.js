@@ -1,39 +1,24 @@
 import React, { useState } from 'react';
 import './LoginPopup.css';
-import AdminPage from './AdminPage';
+import axios from 'axios';
 
-const LoginPopup = ({ onClose }) => {
+const LoginPopup = ({ onClose , onLoginSuccess }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [userType, setUserType] = useState('');
 
   const handleLogin = () => {
-    fetch('http://localhost:9000/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    })
+    axios.post('http://localhost:9000/api/login', { email, password })
     .then((response) => {
-      if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-  })
-      .then((data) => {
-        setUserType(data.userType);
-      })
-      .catch((error) => {
+      onLoginSuccess(response.data.userType);
+      onClose();
+    })
+    .catch((error) => {
         console.error('Error:', error);
       });
   };
 
   return (
     <div className="login-popup">
-      {userType === 'admin' ? (
-        <AdminPage onClose={onClose} />
-      ) : (
         <div className="popup-content">
           <label>
             Email:
@@ -46,7 +31,6 @@ const LoginPopup = ({ onClose }) => {
           <button onClick={handleLogin}>Login</button>
           <p className='pLoginPopup' onClick={onClose}>Cancel</p>
         </div>
-      )};
     </div>
   );
 };
