@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Header.css';
 import ProfilePopup from './ProfilePopup';
 
-const Header = ({ darkMode, toggleDarkMode, onPageChange }) => {
+const Header = ({ darkMode, toggleDarkMode, onUserTypeChange }) => {
   const logoToRender = darkMode ? logoDark : logoLight;
   const [popupVisible, setPopupVisible] = useState(false);
   const [isImgHovered, setImgHovered] = useState(false);
@@ -34,7 +34,7 @@ const Header = ({ darkMode, toggleDarkMode, onPageChange }) => {
     return (
     <header className={`app-header ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="logo-container">
-        <img src={logoToRender} alt="Logo" className="logo" onClick={() => onPageChange('home')}/>
+        <img src={logoToRender} alt="Logo" className="logo" onClick={() => onUserTypeChange('home')}/>
       </div>
       <div className="theme-switcher" onClick={toggleDarkMode}>
         <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
@@ -42,7 +42,7 @@ const Header = ({ darkMode, toggleDarkMode, onPageChange }) => {
       <div className="profile-picture" onClick={togglePopup}>
         <img src={pfp} alt="Profile" className="profile-img" onMouseEnter={handleImgHover} onMouseLeave={handleImgLeave}/>
       </div>
-      {popupVisible && <ProfilePopup onClose={togglePopup} userInfo={userInfo} isImgHovered={isImgHovered} onPageChange={onPageChange} />}
+      {popupVisible && <ProfilePopup onClose={togglePopup} userInfo={userInfo} isImgHovered={isImgHovered} onUserTypeChange={onUserTypeChange} />}
     </header>
   );
 };

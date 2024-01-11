@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './ProfilePopup.css';
 
-const ProfilePopup = ({ onClose, userInfo, isImgHovered, onPageChange }) => {
+const ProfilePopup = ({ onClose, userInfo, isImgHovered, onUserTypeChange }) => {
   const [topPosition, setTopPosition] = useState(50);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const ProfilePopup = ({ onClose, userInfo, isImgHovered, onPageChange }) => {
           <p>{userAccountType}</p>
           <p>{userEmail}</p>
         </div>
-        <button onClick={() => { onClose(); onPageChange('home'); }}>Sign Out</button>
+        <button onClick={() => { onClose(); onUserTypeChange('home'); }}>Sign Out</button>
       </div>
     </div>
   );
