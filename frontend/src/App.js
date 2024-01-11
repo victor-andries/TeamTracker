@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import TaskContainer from './components/TaskContainer';
 import HomePage from './components/HomePage';
+import ManagerPage from './components/ManagerPage';
 import AdminPage from './components/AdminPage';
 import NotFoundPage from './components/NotFoundPage';
 import './App.css';
@@ -34,7 +35,7 @@ const App = () => {
       ) : ( currentPage === 'admin' ? (
               <AdminPage onUserTypeChange={handleUserTypeChange}/>
             ) : ( currentPage === 'manager' ? (
-                  <HomePage onUserTypeChange={handleUserTypeChange}/> // manager
+                  <HomePage onPageChange={handlePageChange} /> // manager
                 ) : ( currentPage === 'user' ? (
                   <div className="task-containers">
                     <TaskContainer title="Completed Tasks" tasks={completedTasks} isAvailableTasks={false} />
