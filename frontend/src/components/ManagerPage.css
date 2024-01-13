@@ -1,90 +1,128 @@
-/* Resetarea unor stiluri implicit */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, html {
+html, body {
   width: 100%;
   height: 100%;
-  font-family: 'Arial', sans-serif;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
 }
 
-/* Stilurile pentru layout-ul paginii */
 .manager-page {
   display: grid;
-  grid-template-areas:
-    'sidebar content piechart'
-    'sidebar button button';
-  grid-template-columns: 1fr 2fr 1fr; /* Ajustează proporțiile după necesități */
-  grid-template-rows: auto 50px; /* Ajustează înălțimea rândului pentru buton */
-  gap: 10px;
+  grid-template-columns: 1fr 4fr 1fr; /* 1:4:1 ratio */
+  grid-template-rows: 1fr auto; /* full height for content, auto for button */
   height: 100vh;
-  background-color: #333; /* Fundalul general al paginii */
-  color: white; /* Culoarea textului */
-  padding: 20px; /* Spațiu în jurul layout-ului interior */
+  width: 100vw;
+ 
+  
 }
 
-/* Stilurile pentru sidebar-ul utilizatorilor */
 .user-list {
-  grid-area: sidebar;
-  background-color: #222; /* O nuanță mai închisă pentru sidebar */
-  border-radius: 5px; /* Borduri rotunjite */
-  padding: 20px; /* Padding în interiorul sidebar-ului */
-  overflow-y: auto; /* Permiterea scroll-ului pentru multe elemente */
+  grid-area: 1 / 1 / 2 / 2;
+  background-color: inherit;
+  color: inherit;
+  transition: background-color 0.3s, color 0.3s;
+  overflow-y: auto;
 }
 
-/* Stilurile pentru zona centrală de task-uri */
 .tasks-section {
-  grid-area: content;
-  background-color: #555; /* O nuanță mai deschisă decât sidebar-ul */
-  border-radius: 5px; /* Borduri rotunjite */
-  padding: 20px; /* Padding în interiorul secțiunii de task-uri */
+  grid-area: 1 / 2 / 2 / 3;
+  background-color: inherit;
+  color: inherit;
+  transition: background-color 0.3s, color 0.3s;
+  overflow-y: auto;
 }
 
-/* Stilurile pentru graficul piechart */
-.piechart-section {
-  grid-area: piechart;
+.stats-section {
+  grid-area: 1 / 3 / 1 / 4;
+  border: 1px solid inherit;
+  background-color: inherit;
+  color: inherit;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Align piechart at the top, button at the bottom */
+}
+
+.piechart-container {
+  
+  flex-grow: 1; /* Takes up all available space except for the button */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.piechart {
-  width: 200px; /* Dimensiunea piechart-ului */
-  height: 200px;
-  background-color: yellow; /* Culoarea cercului din piechart */
-  border-radius: 50%; /* Rotund */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
+.piechart-container::before {
+  content: '';
+  width: 80%; /* proportional to the container width */
+  height: 0; /* height will be set by padding-bottom */
+  padding-bottom: 80%; /* responsive square, same as width */
+  background-color: yellow;
+  border-radius: 50%;
+  align-self: center;
 }
 
-/* Stilurile pentru butonul de adăugare a task-urilor */
 .add-task-btn {
-  grid-area: button;
-  background-color: #f0a30a; /* Culoarea butonului */
-  color: #333; /* Culoarea textului din buton */
-  border: none;
-  border-radius: 5px; /* Borduri rotunjite */
+  grid-area: 2 / 3 / 3 / 4;
+  background-color: inherit;
+  color: inherit;
+  transition: background-color 0.3s, color 0.3s;
   padding: 10px 20px;
-  cursor: pointer;
-  font-size: 1rem;
-  align-self: start; /* Aliniază butonul la începutul coloanei (partea de sus) */
-  justify-self: center; /* Centrează butonul pe orizontală */
+  margin: 10px;
+  align-self: center;
+  justify-self: center;
 }
 
-/* Stiluri pentru responsivitate */
-@media (max-width: 768px) {
-  .manager-page {
-    grid-template-areas:
-      'sidebar'
-      'content'
-      'piechart'
-      'button';
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto 50px;
-  }
+.user-list, .tasks-section, .stats-section {
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Right shadow */
+}
+
+.user-list h3{
+    text-align: center;
+    padding: 40px 20px;
+    margin: 10px;
+    
+  
+}
+h3{
+  text-align: center;
+  padding: 50px 20px;
+  margin: 10px;
+  
+}
+#tasks{
+  text-align: center;
+  padding: 10px 20px;
+  margin: 10px;
+  
+}
+#btn-editTask{
+  background-color: inherit;
+  color: inherit;
+  transition: background-color 0.5s, color 0.5s;
+  border-right: 1px solid #444;
+  padding: 10px 40px;
+}
+
+#tasks #btn-editTask{
+  text-align: right;
+}
+#tasks:hover p:first-child {
+  font-size: 35px;
+  transition: font-size 0.5s;
+}
+
+
+#tasks:hover #btn-editTask {
+  font-size: 18px;
+  transition: font-size 0.5s;
+}
+#tasks:hover {
+  max-height: 120px;
+  border-color: #050505;
+  transition: max-height 0.5s, border-color 0.5s;  
 }
