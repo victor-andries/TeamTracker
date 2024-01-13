@@ -1,10 +1,9 @@
 import express from 'express';
 import User from '../Entities/User.js';
-import Manager from '../Entities/Manager.js';
 import multer from 'multer';
 
 const adminRouter = express.Router();
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: '../src/uploads/' });
 
 adminRouter.post('/admin/adduser', upload.single('profile_photo'), async (req, res) => {
     try {
@@ -24,21 +23,12 @@ adminRouter.get('/admin/users', async (req, res) => {
     }
 });
 
-adminRouter.post('/admin/addmanager', async (req, res) => {
-    try {
-        const newManager = await Manager.create(req.body);
-        res.status(201).json(newManager);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-});
-
 adminRouter.get('/admin/managers', async (req, res) => {
     try {
         const managers = await Manager.findAll();
         res.json(managers);
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message, details: error });
     }
 });
 

@@ -5,7 +5,7 @@ env.config();
 
 const db = new Sequelize({
     dialect: 'mysql',
-    database: 'TeamTracker',
+    database: 'teamtracker',
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     logging: false,

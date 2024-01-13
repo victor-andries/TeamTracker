@@ -22,7 +22,8 @@ const AddUserPopup = ({ onClose }) => {
     setFormData((prevData) => ({ ...prevData, profile_photo: file }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const data = new FormData();
     Object.keys(formData).forEach(key => {
         data.append(key, formData[key]);
@@ -45,7 +46,7 @@ const AddUserPopup = ({ onClose }) => {
 
   return (
     <div className="add-user-popup">
-        <div className="add-user-popup-content">
+        <form className="add-user-popup-content" onSubmit={handleSubmit}>
         <h2>Add User</h2>
         <label>
           Name:
@@ -65,11 +66,11 @@ const AddUserPopup = ({ onClose }) => {
         </label>
         <label>
           Profile Picture:
-          <input type="file" accept=".png" onChange={handleFileChange} />
+          <input type="file" name="profile_photo" accept=".png" onChange={handleFileChange} />
         </label>
-        <button onClick={handleSubmit}>Add User</button>
+        <button type="submit" >Add User</button>
         <button onClick={onClose}>Cancel</button>
-      </div>
+      </form>
     </div>
   );
 };

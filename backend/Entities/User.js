@@ -39,6 +39,11 @@ const User = db.define("User", {
         allowNull: true
     },
 
+    team_name: {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
+
     profile_photo: {
         type: Sequelize.BLOB,
         allowNull: true

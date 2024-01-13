@@ -13,8 +13,7 @@ env.config();
 
 let app = express();
 
-
-const upload = multer({dest: '../media/'});
+const upload = multer({dest: 'uploads/'});
 
 const corsOptions = {
     origin: 'http://localhost:3000',

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './AddManagerPopup.css';
+import axios from 'axios';
 
 const AddManagerPopup = ({ onClose }) => {
   const [formData, setFormData] = useState({
@@ -21,18 +22,35 @@ const AddManagerPopup = ({ onClose }) => {
     setFormData((prevData) => ({ ...prevData, profilePicture: file }));
   };
 
-  const handleSubmit = () => {
-    onClose();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData();
+    Object.keys(formData).forEach(key => {
+      data.append(key, formData[key]);
+    });
+    axios.post('http://localhost:9000/api/admin/adduser', data, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+      .then(response => {
+        if (response.status === 200) {
+          console.log('Manager adaugat cu succes!');
+        }
+        onClose();
+      }).catch(error => {
+        console.error('Error:', error);
+      });
   };
 
   return (
     <div className="add-manager-popup">
-      <div className="add-manager-popup-content">
+      <form className="add-manager-popup-content" onSubmit={handleSubmit}>
         <h2>Add Manager</h2>
         <label>
           Name:
-          <input type="text" name="name" value={formData.user_name} onChange={handleChange} />
-        </label>        
+          <input type="text" name="user_name" value={formData.user_name} onChange={handleChange} />
+        </label>
         <label>
           Password:
           <input type="password" name="password" value={formData.password} onChange={handleChange} />
@@ -47,11 +65,11 @@ const AddManagerPopup = ({ onClose }) => {
         </label>
         <label>
           Profile Picture:
-          <input type="file" accept=".png" onChange={handleFileChange} />
+          <input type="file" name="profile_photo" accept=".png" onChange={handleFileChange} />
         </label>
-        <button onClick={handleSubmit}>Add User</button>
+        <button type="submit" >Add User</button>
         <button onClick={onClose}>Cancel</button>
-      </div>
+      </form>
     </div>
   );
 };

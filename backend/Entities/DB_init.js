@@ -1,7 +1,6 @@
 import mysql from "mysql2/promise";
 import env from "dotenv";
 import User from "./User.js";
-import Manager from "./Manager.js";
 import Task from "./Task.js";
 
 env.config();
@@ -27,12 +26,8 @@ function Create_DB(){
 
 function FK_Config()
 {
-    Manager.hasMany(User, {as : "Useri", foreignKey: "manager_id"});
-    User.belongsTo(Manager, {foreignKey: "manager_id"});
-
     User.hasMany(Task, {as : "Taskuri", foreignKey: "user_id"});
     Task.belongsTo(User, {foreignKey: "user_id"});
-
 }
 
 function DB_Init(){
