@@ -45,7 +45,7 @@ const User = db.define("User", {
     },
 
     profile_photo: {
-        type: Sequelize.BLOB,
+        type: Sequelize.STRING,
         allowNull: true
     }
 })

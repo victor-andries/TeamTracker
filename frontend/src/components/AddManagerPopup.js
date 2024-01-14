@@ -9,7 +9,7 @@ const AddManagerPopup = ({ onClose }) => {
     email: '',
     team_name: '',
     user_type: 'manager',
-    profilePicture: null,
+    profile_photo: null,
   });
 
   const handleChange = (e) => {

@@ -30,7 +30,7 @@ const Task = db.define("Task", {
     },
 
     status: {
-        type: Sequelize.ENUM("Not Assigned", "In Progress", "Completed"),
+        type: Sequelize.ENUM("OPEN", "PENDING", "COMPLETED", "CLOSED"),
         allowNull: false,
     },
     

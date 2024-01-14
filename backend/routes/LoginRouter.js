@@ -20,13 +20,13 @@ loginRouter.post('/login', async (req, res) => {
         
         if(user.user_type === 'admin') {
             await user.update({ logged_in: true });
-            return res.status(200).json({ userType: 'admin', message: 'Admin s-a logat cu succes' });
+            return res.status(200).json(user);
         } else if (user.user_type === 'manager') {
             await user.update({ logged_in: true });
-            return res.status(200).json({ userType: 'manager', message: 'Manager s-a logat cu succes' });
+            return res.status(200).json(user);
         } else {
             await user.update({ logged_in: true });
-            return res.status(200).json({ userType: 'user', message: 'User s-a logat cu succes' });
+            return res.status(200).json(user);
         }
     } catch (error) {
         console.error(error);

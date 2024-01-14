@@ -16,19 +16,16 @@ adminRouter.post('/admin/adduser', upload.single('profile_photo'), async (req, r
 
 adminRouter.get('/admin/users', async (req, res) => {
     try {
-        const users = await User.findAll();
-        res.json(users);
+        const managers = await User.findAll( {
+            where: { user_type: 'manager' }
+        });
+        const users = await User.findAll( {
+            where: { user_type: 'user' }
+        });
+
+        res.json({ users: users, managers: managers });
     } catch (error) {
         res.status(500).json({ error: error.message });
-    }
-});
-
-adminRouter.get('/admin/managers', async (req, res) => {
-    try {
-        const managers = await Manager.findAll();
-        res.json(managers);
-    } catch (error) {
-        res.status(500).json({ error: error.message, details: error });
     }
 });
 

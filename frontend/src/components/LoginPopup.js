@@ -9,7 +9,11 @@ const LoginPopup = ({ onClose , onLoginSuccess }) => {
   const handleLogin = () => {
     axios.post('http://localhost:9000/api/login', { email, password })
     .then((response) => {
-      onLoginSuccess(response.data.userType);
+      const user_type = response.data.user_type;
+      const user_id = response.data.user_id;
+      console.log('User type:', user_type);
+      console.log('User ID:', user_id);
+      onLoginSuccess(user_type, user_id);
       onClose();
     })
     .catch((error) => {

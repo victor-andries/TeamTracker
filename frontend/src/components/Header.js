@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Header.css';
 import ProfilePopup from './ProfilePopup';
 
-const Header = ({ darkMode, toggleDarkMode, onUserTypeChange }) => {
+const Header = ({ darkMode, toggleDarkMode, onUserTypeChange, user_id }) => {
   const logoToRender = darkMode ? logoDark : logoLight;
   const [popupVisible, setPopupVisible] = useState(false);
   const [isImgHovered, setImgHovered] = useState(false);
@@ -16,15 +16,9 @@ const Header = ({ darkMode, toggleDarkMode, onUserTypeChange }) => {
   const handleImgHover = () => {
     setImgHovered(true);
   };
-
+  
   const handleImgLeave = () => {
     setImgHovered(false);
-  };
-
-  const userInfo = {
-    name: 'Asan Denis-Claudiu',
-    accountType: 'Junior Software Engineer',
-    email: 'asandenis@teamtracker.com',
   };
 
   const togglePopup = () => {
@@ -42,7 +36,7 @@ const Header = ({ darkMode, toggleDarkMode, onUserTypeChange }) => {
       <div className="profile-picture" onClick={togglePopup}>
         <img src={pfp} alt="Profile" className="profile-img" onMouseEnter={handleImgHover} onMouseLeave={handleImgLeave}/>
       </div>
-      {popupVisible && <ProfilePopup onClose={togglePopup} userInfo={userInfo} isImgHovered={isImgHovered} onUserTypeChange={onUserTypeChange} />}
+      {popupVisible && <ProfilePopup onClose={togglePopup} onUserTypeChange={onUserTypeChange} user_id={user_id} />}
     </header>
   );
 };

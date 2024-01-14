@@ -5,6 +5,7 @@ import DB_Init from '../Entities/DB_init.js'
 import createDB from '../database/createDBRoute.js'
 import { loginRouter } from '../routes/LoginRouter.js'
 import { adminRouter } from '../routes/AdminRouter.js'
+import { taskRouter } from '../routes/TaskRouter.js'
 import multer from 'multer'
 
 env.config();
@@ -32,6 +33,7 @@ DB_Init();
 app.use("/api", createDB);
 app.use('/api', loginRouter);
 app.use("/api", adminRouter);
+app.use("/api", taskRouter);
 
 let port = process.env.PORT || 8001;
 app.listen(port)

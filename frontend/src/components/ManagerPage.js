@@ -56,7 +56,7 @@ const ManagerPage = () => {
   return (
     <div class="manager-page">
     <aside class="user-list">
-    <h3>UTILIZATORI</h3>
+    <h3>Users</h3>
       <ul>
       {users.map(user => (
             <li key={user.user_id}>{user.user_name}</li>
@@ -64,20 +64,20 @@ const ManagerPage = () => {
       </ul>
     </aside>
     <section class="tasks-section">
-      <h3>TASK-URI</h3>
+      <h3>Tasks</h3>
       {tasks.map(task => (
           <div id="tasks" key={task.id}>
             <p>{task.name}</p> 
-            <button id="btn-editTask" >Editeaza Task</button> 
+            {/* <button id="btn-editTask" >Edit task</button>  */}
             </div>
         ))}
     </section>
     <section class="stats-section">
-    <h3>PIECHART</h3>
+    <h3>Piechart</h3>
       <div class="piechart-container">
         
       </div>
-      <button onClick={() => openPopup({ title: 'Not Started', status: 'Not Started', description: 'Sample description' })} class="add-task-btn">ADAUGA TASK</button>
+      <button onClick={() => openPopup({ title: 'OPEN', status: 'OPEN', description: 'Sample description' })} class="add-task-btn">Add task</button>
     </section>
     {popupVisible && <ManagerAddTaskPopup task={selectedTask} onClose={closePopup} />}
   </div>

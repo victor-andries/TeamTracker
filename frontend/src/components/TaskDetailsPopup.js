@@ -2,6 +2,10 @@ import React from 'react';
 import './TaskDetailsPopup.css';
 
 const TaskDetailsPopup = ({ task, onClose }) => {
+  if (task.status == "COMPLETED") {
+    return null;
+  }
+
   return (
     <div className="task-details-popup">
       <div className="popup-content">

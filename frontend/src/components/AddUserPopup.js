@@ -7,9 +7,10 @@ const AddUserPopup = ({ onClose }) => {
     user_name: '',
     password: '',
     email: '',
-    manager_id: null,
+    team_name: '',
     user_type: "user",
-    profile_photo: null,
+    manager_id: '',
+    profile_photo: '',
   });
 
   const handleChange = (e) => {
@@ -61,8 +62,12 @@ const AddUserPopup = ({ onClose }) => {
           <input type="email" name="email" value={formData.email} onChange={handleChange} />
         </label>
         <label>
-          Assigned Manager:
-          <input type="text" name="manager_id" value={formData.manager_id} onChange={handleChange} />
+          Team Name:
+          <input type="text" name="team_name" value={formData.team_name} onChange={handleChange} />
+        </label>
+        <label>
+          Manager id:
+          <input type="number" name="manager_id" value={formData.manager_id} onChange={handleChange} />
         </label>
         <label>
           Profile Picture:

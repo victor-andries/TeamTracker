@@ -10,24 +10,22 @@ import './App.css';
 const App = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [currentPage, setCurrentPage] = useState('home');
+  const [user_id, setUserID] = useState(null);
+  
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
 
-  const handleUserTypeChange = (currentPage) => {
+  const handleUserTypeChange = (currentPage, user_id = null) => {
     setCurrentPage(currentPage);
+    setUserID(user_id);
   };
-
-  const completedTasks = ['Task 1', 'Task 2', 'Task 3'];
-  const availableTasks = ['Task 4', 'Task 5', 'Task 6', 'Task 7'];
-
-  
 
   return (
     <div className={`app-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       {currentPage === 'home' || currentPage === 'admin' || currentPage === 'manager' || currentPage === 'user' ? (
-        <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} onUserTypeChange={ handleUserTypeChange}/>
+        <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} onUserTypeChange={handleUserTypeChange} user_id={user_id}/>
       ) : null}
 
       {currentPage === 'home' ? (
@@ -38,8 +36,8 @@ const App = () => {
               <ManagerPage  onUserTypeChange={handleUserTypeChange}/> 
                 ) : ( currentPage === 'user' ? (
                   <div className="task-containers">
-                    <TaskContainer title="Completed Tasks" tasks={completedTasks} isAvailableTasks={false} />
-                    <TaskContainer title="Available Tasks" tasks={availableTasks} isAvailableTasks={true} />
+                    <TaskContainer title="Completed Tasks" user_id={user_id}/>
+                    <TaskContainer title="Available Tasks" user_id={user_id}/>
                   </div>
                 ) : (
                   <NotFoundPage onUserTypeChange={handleUserTypeChange}/>

@@ -18,10 +18,10 @@ const HomePage = ({onUserTypeChange}) => {
           TeamTracker is a task tracking web application that helps teams stay organized and efficient.<br></br>Brought to you by Denis, Ariton & Victor.
         </p>
         <button className="login-button" onClick={toggleLoginPopup}>Login</button>
-        <p onClick={() =>  onUserTypeChange('user')}>UserPage</p>
-        <p onClick={() =>  onUserTypeChange('manager')}>ManagerPage</p>
-        <p onClick={() =>  onUserTypeChange('admin')}>AdminPage</p>
-        <p onClick={() =>  onUserTypeChange('sdfkshfkss')}>ErrorPage</p>
+        <p onClick={() => onUserTypeChange('user')}>UserPage</p>
+        <p onClick={() => onUserTypeChange('manager')}>ManagerPage</p>
+        <p onClick={() => onUserTypeChange('admin')}>AdminPage</p>
+        <p onClick={() => onUserTypeChange('sdfkshfkss')}>ErrorPage</p>
       </div>
       {loginPopupVisible && <LoginPopup onClose={toggleLoginPopup} onLoginSuccess={onUserTypeChange} />}
     </div>

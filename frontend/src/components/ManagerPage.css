@@ -17,8 +17,6 @@ html, body {
   grid-template-rows: 1fr auto; /* full height for content, auto for button */
   height: 100vh;
   width: 100vw;
- 
-  
 }
 
 .user-list {
