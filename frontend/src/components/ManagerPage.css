@@ -13,8 +13,8 @@ html, body {
 
 .manager-page {
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr; /* 1:4:1 ratio */
-  grid-template-rows: 1fr auto; /* full height for content, auto for button */
+  grid-template-columns: 1fr 4fr 1fr; 
+  grid-template-rows: 1fr auto; 
   height: 100vh;
   width: 100vw;
 }
@@ -43,12 +43,12 @@ html, body {
   transition: background-color 0.3s, color 0.3s;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Align piechart at the top, button at the bottom */
+  justify-content: space-between; 
 }
 
 .piechart-container {
   
-  flex-grow: 1; /* Takes up all available space except for the button */
+  flex-grow: 1; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,9 +56,9 @@ html, body {
 
 .piechart-container::before {
   content: '';
-  width: 80%; /* proportional to the container width */
-  height: 0; /* height will be set by padding-bottom */
-  padding-bottom: 80%; /* responsive square, same as width */
+  width: 80%; 
+  height: 0; 
+  padding-bottom: 80%; 
   background-color: yellow;
   border-radius: 50%;
   align-self: center;
@@ -123,4 +123,10 @@ h3{
   max-height: 120px;
   border-color: #050505;
   transition: max-height 0.5s, border-color 0.5s;  
+}
+.task-item {
+  display: flex;
+  justify-content: space-between; /* This will put space between the label and the button */
+  align-items: center; /* This will vertically align the items in the middle */
+  margin-bottom: 10px; /* Add space between each task-item */
 }

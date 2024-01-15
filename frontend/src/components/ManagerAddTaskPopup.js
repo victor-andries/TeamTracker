@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './TaskDetailsPopup.css';
+import './ManagerAddTaskPopup.css';
 import axios from 'axios';
 
 
@@ -15,26 +15,39 @@ const ManagerAddTaskPopup = ({ onClose }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setTask({ ...task, [name]: value });
+   
+
+    if (name === 'description') {
+      const words = value.split(/\s+/);
+      if (words.filter(Boolean).length > 10) {
+       
+        onClose();
+      }
   }
+  setTask({ ...task, [name]: value });
+}
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     axios.post('http://localhost:9000/api/manager/addtask', task)
       .then(response => {
         if (response.status === 200) {
           console.log('Task adaugat cu succes!');
+          //onAddTask(response.data);
+          onClose(); 
         }
-        onClose();
+        
       })
       .catch(error => {
         console.error('Error:', error);
       });
+    
   }
 
   return (
-    <div className="task-details-popup">
+    <div className="manager-details-popup">
       <div className="popup-content">
         <form onSubmit={handleSubmit}>
           <label>
@@ -47,7 +60,7 @@ const ManagerAddTaskPopup = ({ onClose }) => {
           </label>
           <label>
             Description:
-            <textarea name='description' value={task.description} onChange={handleInputChange} />
+            <textarea name='description' value={task.description} onChange={handleInputChange} placeholder="Max 300 words"/>
           </label>
           <label>
             Due Date:
@@ -61,11 +74,19 @@ const ManagerAddTaskPopup = ({ onClose }) => {
               <option value="Low">Low</option>
             </select>
           </label>
-          <p>Status: {task.status}</p>
+          <label>
+            Status:
+            <select name='status' value={task.status} onChange={handleInputChange}>
+              <option value="PENDING">PENDING</option>
+              <option value="OPEN">OPEN </option>
+            </select>
+          </label>
           <button type='submit'>Submit</button>
           <button type='button' onClick={onClose}>Close</button>
         </form>
+        
       </div>
+      
     </div>
   );
 };

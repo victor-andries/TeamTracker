@@ -2,7 +2,7 @@ import React from 'react';
 import './TaskDetailsPopup.css';
 
 const TaskDetailsPopup = ({ task, onClose }) => {
-  if (task.status == "COMPLETED") {
+  if (task.status === "COMPLETED") {
     return null;
   }
 

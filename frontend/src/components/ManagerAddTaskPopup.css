@@ -1,0 +1,138 @@
+.manager-details-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+    z-index: 2;
+}
+
+.manager-details-popup .popup-content h2 {
+    margin-bottom: 3px;
+    font-weight: bold;
+    user-select: auto;
+}
+
+.manager-details-popup .popup-content p:nth-child(2) {
+    margin-bottom: 25px;
+    user-select: none;
+}
+
+.manager-details-popup.popup-content p:nth-child(3) {
+    margin-bottom: 50px;
+    font-size: 20px;
+    user-select: none;
+}
+
+.manager-details-popup .popup-content label {
+    width: 100%;
+    user-select: none;
+}
+
+.manager-details-popup .popup-content label textarea {
+    height: 150px;
+    margin-bottom: 20px;
+    background-color: inherit;
+    color: inherit;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.manager-details-popup .popup-content label input {
+    margin-bottom: 100px;
+}
+
+.manager-details-popup .popup-content label input::file-selector-button {
+    background-color: #f8c630;
+    font-weight: bold;
+    color: #2b2929;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: font-size 0.3s, background-color 0.3s;
+}
+
+.manager-details-popup.popup-content label input::file-selector-button:hover {
+    background-color: #fcae24;
+    font-size: 23px;
+    transition: font-size 0.3s, background-color 0.3s;
+}
+
+.manager-details-popup .popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 600px;
+}
+  
+.manager-details-popup .popup-content textarea {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 10px;
+   
+}
+
+
+  
+.manager-details-popup .popup-content button {
+    position: relative;
+    background-color: #f8c630;
+    font-weight: bold;
+    color: #2b2929;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 120px;
+    font-size: 20px;
+    transition: font-size 0.3s, background-color 0.3s;
+    text-align: center;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    user-select: none;
+}
+
+.manager-details-popup .popup-content button:hover {
+    background-color: #fcae24;
+    font-size: 23px;
+    transition: font-size 0.3s, background-color 0.3s;
+}
+  
+.manager-details-popup .popup-content button:last-child {
+    background-color: #ccc;
+    font-size: 20px;
+    font-weight: bold;
+    width: 120px;
+    transition: font-size 0.3s, background-color 0.3s;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.manager-details-popup.popup-content button:last-child:hover {
+    background-color: #ababab;
+    font-size: 23px;
+    transition: font-size 0.3s, background-color 0.3s;
+}
+
+.manager-details-popup .popup-content h2,
+.manager-details-popup .popup-content p {
+  text-align: center;
+}
+
+.dark-mode .manager-details-popup .popup-content {
+    background-color: #2b2929;
+    color: #fff;
+}
+  
+.light-mode .manager-details-popup .popup-content {
+    background-color: #fff;
+    color: #2b2929;
+}
