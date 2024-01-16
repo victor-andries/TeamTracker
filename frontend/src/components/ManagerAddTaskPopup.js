@@ -35,9 +35,8 @@ const ManagerAddTaskPopup = ({ onClose }) => {
       .then(response => {
         if (response.status === 200) {
           console.log('Task adaugat cu succes!');
-          //onAddTask(response.data);
-          onClose(); 
         }
+        onClose(); 
         
       })
       .catch(error => {

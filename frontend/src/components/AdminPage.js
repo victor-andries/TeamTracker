@@ -68,7 +68,7 @@ const AdminPage = ({}) => {
             ))}
           </ul>
         </div>
-        <div className="manager-container">
+        <div className="user-container">
           <h2>Managers</h2>
           <ul>
             { managers && managers.map((manager) => (

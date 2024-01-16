@@ -70,6 +70,45 @@ taskRouter.patch('/user/tasks/:task_id', async (req, res) => {
     }
 });
 
+taskRouter.patch('/tasks/closed/:task_id', async (req, res) => {
+    try {
+        const { task_id } = req.params;
+
+        const task = await Task.findByPk(task_id);
+        if (!task) {
+            return res.status(404).json({ message: 'Task not found' });
+        }
+
+        await Task.update({
+            status: 'CLOSED'
+        }, {
+            where: { task_id }
+        });
+
+        const updatedTask = await Task.findByPk(task_id);
+
+        res.json({ message: 'Task modificat cu succes', task: updatedTask });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+taskRouter.get('/tasks/:user_id', async (req, res) => {
+    const user_id = req.params.user_id;
+
+    try {
+        const tasks = await Task.findAll({ 
+            where: { user_id: user_id }
+        });
+        if (!tasks) {
+            return res.status(404).json({ message: 'Taskurile nu au fost găsite.' });
+        }
+        res.status(200).json(tasks);
+    } catch (error) {
+        res.status(500).json({message: "Eroare la preluarea datelor"})
+    }
+});
+
 taskRouter.get('/user/:user_id', async (req, res) => {
     try {
         const user_id = req.params.user_id;
