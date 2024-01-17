@@ -83,11 +83,6 @@ const ManagerPage = () => {
       });
   };
 
-<<<<<<< Updated upstream
-=======
- 
-  
->>>>>>> Stashed changes
   useEffect(() => {
     fetchUsers();
   }, []);
