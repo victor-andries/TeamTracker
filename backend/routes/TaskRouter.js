@@ -1,6 +1,7 @@
 import express from 'express'
 import Task from '../Entities/Task.js'
 import User from '../Entities/User.js'
+import { Op } from 'sequelize';
 
 const taskRouter = express.Router();
 
@@ -27,14 +28,18 @@ taskRouter.get('/user/tasks', async (req, res) => {
         const completedTasks = await Task.findAll({
             where: {
                 user_id: loggedInUser.user_id,
-                status: 'COMPLETED'
+                status: {
+                    [Op.or]: ['COMPLETED', 'CLOSED']
+                }
             }
         });
 
         const availableTasks = await Task.findAll({
             where: {
                 user_id: loggedInUser.user_id,
-                status: 'PENDING'
+                status: {
+                    [Op.or]: ['PENDING', 'OPEN']
+                }
             }
         });
 

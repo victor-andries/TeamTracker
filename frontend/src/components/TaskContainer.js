@@ -58,14 +58,14 @@ const TaskContainer = ({ title, user_id }) => {
     <div className={`task-container`}>
       <h2>{title}</h2>
       {title === "Completed Tasks" && (
-      <button onClick={fetching}>Reîncarcă Datele</button>)}
+      <button className = 'refresh-button' onClick={fetching}>Reîncarcă Datele</button>)}
       {tasksToDisplay.map((task) => (
         <div key={task.task_id} className="task-box">
           <div className="task-details">
             <p onClick={() => openPopup(task)}>{task.title}</p>
             <p>Status:{task.status}</p>
-            {task.status !== 'COMPLETED' && (
-              <button onClick={() => modifyTask(task)}>
+            {task.status !== 'COMPLETED' && task.status !== 'CLOSED' && (
+              <button className ='end-task-button' onClick={() => modifyTask(task)}>
                 End Task
               </button>
             )}

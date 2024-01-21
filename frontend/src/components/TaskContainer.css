@@ -8,6 +8,7 @@
   transition: background-color 0.3s, color 0.3s;
   height: 80vh;
   margin-top: 32px;
+  overflow: auto;
 }
 
 .task-container h2 {
@@ -60,7 +61,7 @@
   flex: 1;
 }
 
-.available-tasks button {
+.end-task-button {
   position: absolute;
   top: 50%;
   right: 10px;
@@ -75,6 +76,20 @@
   transition: background-color 0.3s;
   transition: font-size 0.3s;
   user-select: none;
+}
+
+.refresh-button {
+  position: relative;
+  transform: translateY(-50%);
+  background-color: #f8c630;
+  color: #2b2929;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  transition: font-size 0.3s;
 }
 
 .available-tasks button:hover {
